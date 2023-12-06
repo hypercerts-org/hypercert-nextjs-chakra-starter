@@ -36,6 +36,7 @@ export default function Home() {
       justifyContent={"space-between"}
       p={"2rem"}
       bgColor={"#304849"}
+      color={"white"}
     >
       <Flex w={"100%"} justifyContent={"space-around"}>
         <Box
