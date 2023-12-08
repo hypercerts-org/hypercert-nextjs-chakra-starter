@@ -4,30 +4,13 @@ import Image from "next/image";
 import { ConnectKitButton } from "connectkit";
 import { Box, Divider, Flex, Heading, Spacer, Text } from "@chakra-ui/react";
 import { useNetwork } from "wagmi";
-import { HypercertClient } from "@hypercerts-org/sdk";
-import { useEffect, useState, useMemo } from "react";
+import { useHypercertClient } from "./hooks/useHypercertClient";
+import { useIndexer } from "./hooks/useIndexer";
 
 export default function Home() {
   const { chain } = useNetwork();
-  const [firstHypercert, setFirstHypercert] = useState<any>();
-
-  const client = useMemo(
-    () =>
-      chain ? new HypercertClient({ chain: { id: chain.id } }) : undefined,
-    [chain]
-  );
-
-  useEffect(() => {
-    if (client) {
-      const getFirstHypercert = async () => {
-        const firstHypercert = await client.indexer.firstClaims();
-        if (firstHypercert.claims && firstHypercert.claims.length > 0)
-          setFirstHypercert(firstHypercert.claims[0]);
-      };
-
-      getFirstHypercert();
-    }
-  }, [client]);
+  const { client } = useHypercertClient();
+  const { firstHypercert } = useIndexer();
 
   return (
     <Flex
@@ -70,7 +53,7 @@ export default function Home() {
           height={37}
           priority
         />
-        {client && firstHypercert ? (
+        {client ? (
           <Flex
             mt="2em"
             direction={"column"}
@@ -86,7 +69,7 @@ export default function Home() {
             <Divider my="2em" w={"sm"} />
             <Text>First Hypercert ID:</Text>
             <Text as="kbd" fontWeight={"bold"}>
-              {firstHypercert.id}
+              {firstHypercert ? firstHypercert.id : "Loading..."}
             </Text>
           </Flex>
         ) : (
