@@ -2,16 +2,10 @@
 import { Link } from "@chakra-ui/next-js";
 import Image from "next/image";
 import { ConnectKitButton } from "connectkit";
-import { Box, Divider, Flex, Heading, Spacer, Text } from "@chakra-ui/react";
-import { useNetwork } from "wagmi";
-import { useHypercertClient } from "./hooks/useHypercertClient";
-import { useIndexer } from "./hooks/useIndexer";
+import { Box, Flex, Heading, Spacer, Text } from "@chakra-ui/react";
+import ClientInfo from "./components/ClientInfo";
 
 export default function Home() {
-  const { chain } = useNetwork();
-  const { client } = useHypercertClient();
-  const { firstHypercert } = useIndexer();
-
   return (
     <Flex
       direction={"column"}
@@ -53,36 +47,7 @@ export default function Home() {
           height={37}
           priority
         />
-        {client ? (
-          <Flex
-            mt="2em"
-            direction={"column"}
-            justifyContent={"center"}
-            alignItems={"center"}
-          >
-            <Text>
-              Hypercert SDK client connected to{" "}
-              <Text as="kbd" fontWeight={"bold"}>
-                {client._config.chain?.name}
-              </Text>
-            </Text>
-            <Divider my="2em" w={"sm"} />
-            <Text>First Hypercert ID:</Text>
-            <Text as="kbd" fontWeight={"bold"}>
-              {firstHypercert ? firstHypercert.id : "Loading..."}
-            </Text>
-          </Flex>
-        ) : (
-          <Flex
-            mt="2em"
-            direction={"column"}
-            justifyContent={"center"}
-            alignItems={"center"}
-          >
-            <Text mb={"2em"}>Hypercert SDK client not connected</Text>
-            <ConnectKitButton />
-          </Flex>
-        )}
+        <ClientInfo />
       </Flex>
 
       <Flex
