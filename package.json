@@ -13,7 +13,7 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@hypercerts-org/sdk": "1.0.3",
+    "@hypercerts-org/sdk": "1.2.0",
     "connectkit": "^1.5.3",
     "framer-motion": "^10.16.14",
     "next": "14.0.3",
