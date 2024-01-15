@@ -1,5 +1,5 @@
 "use client";
-import { useHypercertClient } from "@/app/hooks/useHypercertClient";
+import { useHypercertClient } from "@/hooks/useHypercertClient";
 import {
   Flex,
   Text,

@@ -1,10 +1,10 @@
 "use client";
-import { useHypercertClient } from "@/app/hooks/useHypercertClient";
-import { useIndexer } from "@/app/hooks/useIndexer";
+import { useHypercertClient } from "@/hooks/useHypercertClient";
+import { useIndexer } from "@/hooks/useIndexer";
 import { Flex, Text, Divider, Spinner } from "@chakra-ui/react";
-import { ConnectKitButton } from "connectkit";
 import { useEffect, useState } from "react";
 import HypercertInfo from "./HypercertInfo";
+import { ConnectKitButton } from "connectkit";
 
 const ClientInfo = () => {
   const { client } = useHypercertClient();

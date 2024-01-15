@@ -2,10 +2,10 @@
 
 import { ChakraProvider } from "@chakra-ui/react";
 import { WagmiConfig, createConfig } from "wagmi";
-import { ConnectKitProvider, getDefaultConfig } from "connectkit";
 import { assertExists } from "./utils";
 import theme from "./theme";
 import { sepolia, optimism, celo } from "wagmi/chains";
+import { ConnectKitProvider, getDefaultConfig } from "connectkit";
 
 const chains = [sepolia, optimism, celo];
 
@@ -38,7 +38,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ChakraProvider theme={theme}>
       <WagmiConfig config={wagmiConfig}>
-        <ConnectKitProvider>{children} </ConnectKitProvider>
+        <ConnectKitProvider>{children}</ConnectKitProvider>
       </WagmiConfig>
     </ChakraProvider>
   );
