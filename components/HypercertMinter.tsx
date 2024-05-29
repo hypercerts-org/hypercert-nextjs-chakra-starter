@@ -1,26 +1,14 @@
-import {
-  Heading,
-  HStack,
-  Spinner,
-  useToast,
-  Image,
-  Button,
-} from "@chakra-ui/react";
-import { MintingForm, MintingFormValues } from "./MintingForm";
-import { useEffect, useRef, useState } from "react";
-import { exportAsImage } from "@/lib/exportToImage";
-import { useHypercertClient } from "@/hooks/useHypercertClient";
-import {
-  HypercertMetadata,
-  TransferRestrictions,
-  validateMetaData,
-  validateClaimData,
-} from "@hypercerts-org/sdk";
-import { useInteractionModal } from "@/components/InteractionModal";
-import { TransactionReceipt } from "viem";
-import { parseEther } from "viem/utils";
-import { useAccount, usePublicClient } from "wagmi";
-import { DateTime } from "luxon";
+import {Button, HStack, useToast,} from "@chakra-ui/react";
+import {MintingForm, MintingFormValues} from "./MintingForm";
+import {useEffect, useRef, useState} from "react";
+import {exportAsImage} from "@/lib/exportToImage";
+import {useHypercertClient} from "@/hooks/useHypercertClient";
+import {HypercertMetadata, TransferRestrictions, validateClaimData, validateMetaData,} from "@hypercerts-org/sdk";
+import {useInteractionModal} from "@/components/InteractionModal";
+import {TransactionReceipt} from "viem";
+import {parseEther} from "viem/utils";
+import {useAccount, usePublicClient} from "wagmi";
+import {DateTime} from "luxon";
 
 const formValuesToHypercertMetadata = (
   values: MintingFormValues,

@@ -1,46 +1,36 @@
 "use client";
-import {
-  Box,
-  Button,
-  Flex,
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-  HStack,
-  Input,
-} from "@chakra-ui/react";
+import {Box, Button, Flex, FormControl, FormErrorMessage, FormLabel, Input,} from "@chakra-ui/react";
 
-import { z } from "zod";
-import { useForm } from "react-hook-form";
-import { HypercertFetcher } from "@/components/HypercertFetcher";
-import { useState } from "react";
+import {z} from "zod";
+import {useForm} from "react-hook-form";
+import {HypercertFetcher} from "@/components/HypercertFetcher";
+import {useState} from "react";
 
-const ClaimIdFormSchema = z.object({
-  claimId: z.string(),
+const HypercertIdFormSchema = z.object({
+  hypercertId: z.string(),
 });
 
-type ClaimIdFormSchema = z.infer<typeof ClaimIdFormSchema>;
+type HypercertIdFormSchema = z.infer<typeof HypercertIdFormSchema>;
 
 export default function Home() {
-  const [claimId, setClaimId] = useState<string>("");
+  const [hypercertId, setHypercertId] = useState<string>("");
 
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm<ClaimIdFormSchema>({
+  } = useForm<HypercertIdFormSchema>({
     defaultValues: {
-      claimId: "",
+      hypercertId: "11155111-0xa16DFb32Eb140a6f3F2AC68f41dAd8c7e83C4941-340282366920938463463374607431768211456",
     },
   });
 
-  const onSubmit = (data: ClaimIdFormSchema) => {
-    if (!data.claimId && !errors.claimId) {
-      console.log(`No valid claimId provided: ${data.claimId}`);
+  const onSubmit = (data: HypercertIdFormSchema) => {
+    if (!data.hypercertId && !errors.hypercertId) {
+      console.log(`No valid hypercert is provided: ${data.hypercertId}`);
       return;
     }
-    setClaimId(data.claimId);
+    setHypercertId(data.hypercertId);
   };
 
   return (
@@ -53,18 +43,18 @@ export default function Home() {
       p={"5rem"}
     >
       <Box as="form" onSubmit={handleSubmit(onSubmit)} minW="450px">
-        <FormControl isInvalid={!!errors.claimId}>
-          <FormLabel htmlFor="claimId">Claim ID</FormLabel>
-          <Input id="claimId" placeholder="Claim ID" {...register("claimId")} />
+        <FormControl isInvalid={!!errors.hypercertId}>
+          <FormLabel htmlFor="claimId">Hypercert ID</FormLabel>
+          <Input id="hypercertId" placeholder="Hypercert ID" {...register("hypercertId")} />
           <FormErrorMessage>
-            {errors.claimId && errors.claimId.message}
+            {errors.hypercertId && errors.hypercertId.message}
           </FormErrorMessage>
         </FormControl>
         <Button type="submit" colorScheme="blue" mt={4}>
           Search
         </Button>
       </Box>{" "}
-      <HypercertFetcher claimId={claimId} />
+      <HypercertFetcher hypercertId={hypercertId} />
     </Flex>
   );
 }

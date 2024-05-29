@@ -1,15 +1,8 @@
-import { z } from "zod";
-import { useForm, SubmitHandler } from "react-hook-form";
-import {
-  Button,
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-  HStack,
-  Input,
-} from "@chakra-ui/react";
-import { MutableRefObject } from "react";
-import { HypercertPreview } from "./HypercertPreview";
+import {z} from "zod";
+import {SubmitHandler, useForm} from "react-hook-form";
+import {Button, FormControl, FormErrorMessage, FormLabel, HStack, Input,} from "@chakra-ui/react";
+import {MutableRefObject} from "react";
+import {HypercertPreview} from "./HypercertPreview";
 
 const MintingFormSchema = z.object({
   name: z.string().min(1).max(50),
