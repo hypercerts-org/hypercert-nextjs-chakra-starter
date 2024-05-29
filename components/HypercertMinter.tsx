@@ -74,10 +74,10 @@ export const HypercertMinter = ({
   const toast = useToast();
   const { client } = useHypercertClient();
   const { onOpen, setStep, onClose } = useInteractionModal();
-  const { address, isConnected } = useAccount();
+  const { address  } = useAccount();
   const publicClient = usePublicClient();
 
-  const [previewImageSrc, setPreviewImageSrc] = useState<string | undefined>(
+  const [ setPreviewImageSrc] = useState<string | undefined>(
     undefined
   );
 

@@ -5,7 +5,7 @@ import {useChainId, useWalletClient} from "wagmi";
 
 export const useHypercertClient = () => {
     const chainId = useChainId();
-    const {data: walletClient, isError, isLoading} = useWalletClient();
+    const {data: walletClient } = useWalletClient();
 
     // The SDK will throw an error if the chain is not supported; only testnet for demo purposes
     const isSupportedChain = (chainId: number) => {
