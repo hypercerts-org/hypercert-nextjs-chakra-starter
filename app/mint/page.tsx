@@ -1,7 +1,6 @@
 "use client";
-import { Box, Flex, Heading, Spacer, Text } from "@chakra-ui/react";
-import { HypercertMinter } from "@/components/HypercertMinter";
-import { ConnectKitButton } from "connectkit";
+import {Flex} from "@chakra-ui/react";
+import {HypercertMinter} from "@/components/HypercertMinter";
 
 export default function Home() {
   return (
