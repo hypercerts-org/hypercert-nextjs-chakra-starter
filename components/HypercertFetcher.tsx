@@ -21,15 +21,14 @@ export const HypercertFetcher = ({hypercertId}: HypercertFetcherProps) => {
             setIsLoading(false);
             const getHypercert = async () => {
                 const res = await indexer.hypercertById({id: hypercertId});
-                console.log(res);
 
+                console.log(res);
                 if (!res) {
                     console.error("Hypercert not found");
                     return;
                 }
 
                 if (res.hypercerts.data) {
-                    console.log("Found hypercert data: ", res.hypercerts.data);
                     sethypercert(res.hypercerts.data[0]);
                 }
             };
@@ -67,6 +66,7 @@ export const HypercertFetcher = ({hypercertId}: HypercertFetcherProps) => {
         );
     }
 
+
     return (
         <>
             {client && indexer ? (
@@ -79,7 +79,7 @@ export const HypercertFetcher = ({hypercertId}: HypercertFetcherProps) => {
                     <Text>
                         Hypercert SDK client connected to{" "}
                         <Text as="kbd" fontWeight={"bold"}>
-                            {client._config.chain?.name}
+                            {client._config?.environment}
                         </Text>
                     </Text>
                     <Divider my="2em" w={"sm"}/>
