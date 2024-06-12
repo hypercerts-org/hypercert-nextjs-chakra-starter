@@ -1,10 +1,14 @@
 "use client";
-import { useHypercertClient } from "./useHypercertClient";
+import {useHypercertClient} from "./useHypercertClient";
 
 const useIndexer = () => {
-  const { client } = useHypercertClient();
+    const {client} = useHypercertClient();
 
-  return { indexer: client?.indexer };
+    const getMetadataForUri = async (uri: string) => {
+        return await client.indexer.metadataByUri({uri})
+    }
+
+    return {indexer: client?.indexer, getMetadataForUri};
 };
 
-export { useIndexer };
+export {useIndexer};
