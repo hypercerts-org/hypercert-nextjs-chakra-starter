@@ -156,7 +156,7 @@ export const HypercertMinter = ({
                 throw new Error("Transaction failed");
             }
 
-            transactionReceipt = await publicClient.waitForTransactionReceipt({
+            transactionReceipt = await publicClient?.waitForTransactionReceipt({
                 hash: transactionHash,
             });
             if (transactionReceipt?.status !== "success") {

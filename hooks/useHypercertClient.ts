@@ -10,12 +10,11 @@ export const useHypercertClient = () => {
         () =>
             new HypercertClient({
                 environment: "test",
+                // @ts-ignore - wagmi and viem have different typing
                 walletClient,
             }),
         [walletClient]
     );
-
-    console.log(client);
 
     return {client};
 };

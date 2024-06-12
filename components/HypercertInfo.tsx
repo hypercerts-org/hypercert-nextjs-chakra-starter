@@ -27,9 +27,9 @@ const HypercertInfo = ({uri}: { uri: string }) => {
             const getHypercertMetaData = async () => {
                 const res = await client.indexer.metadataByUri({uri});
 
-                console.log("METADATA: ", metadata);
-                const {data} = validateMetaData(res?.metadata?.data[0]);
-                if (metadata) {
+                if (res) {
+                    // @ts-ignore
+                    const {data} = validateMetaData(res?.metadata?.data[0]);
                     console.log(data);
                     setMetaData(data as HypercertMetadata);
                 } else {
