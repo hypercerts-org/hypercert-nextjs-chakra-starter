@@ -55,7 +55,7 @@ const ClientInfo = () => {
                     <Text>
                         Hypercert SDK client connected to{" "}
                         <Text as="kbd" fontWeight={"bold"}>
-                            {client._config.chain?.name}
+                            {client._config.environment}
                         </Text>
                     </Text>
                     <Divider my="2em" w={"sm"}/>
