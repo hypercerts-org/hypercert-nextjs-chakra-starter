@@ -1,5 +1,4 @@
 "use client";
-import { useHypercertClient } from "@/hooks/useHypercertClient";
 import {
   Flex,
   Text,
@@ -13,8 +12,8 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import { HypercertMetadata, validateMetaData } from "@hypercerts-org/sdk";
+import { useState } from "react";
+import { HypercertMetadata } from "@hypercerts-org/sdk";
 import { useQuery } from "urql";
 import { graphql } from "gql.tada";
 

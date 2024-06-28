@@ -1,8 +1,6 @@
 "use client";
 import { useHypercertClient } from "@/hooks/useHypercertClient";
-import { useIndexer } from "@/hooks/useIndexer";
 import { Flex, Text, Divider, Spinner } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
 import HypercertInfo from "./HypercertInfo";
 import { ConnectKitButton } from "connectkit";
 import { graphql } from "gql.tada";
@@ -10,10 +8,7 @@ import { useQuery } from "urql";
 
 const QUERY = graphql(`
   query HypercertsByBlockNumber {
-    hypercerts(
-      sort: { by: { hypercert_id: ascending } }
-      first: 10
-    ) {
+    hypercerts(sort: { by: { hypercert_id: ascending } }, first: 10) {
       data {
         hypercert_id
         uri
