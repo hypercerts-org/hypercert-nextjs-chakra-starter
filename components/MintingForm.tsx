@@ -39,8 +39,6 @@ export const MintingForm = ({
 
   const values = watch();
 
-  console.log(values);
-
   return (
     <HStack>
       <form onSubmit={handleSubmit(onSubmit)}>
