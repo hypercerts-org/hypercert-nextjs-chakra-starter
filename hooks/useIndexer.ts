@@ -8,7 +8,7 @@ const useIndexer = () => {
         return await client.indexer.metadataByUri({uri})
     }
 
-    return {indexer: client?.indexer, getMetadataForUri};
+    return {indexer: client.indexer, getMetadataForUri};
 };
 
 export {useIndexer};

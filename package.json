@@ -15,28 +15,32 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@hypercerts-org/sdk": "2.0.0-alpha.22",
+    "@hypercerts-org/sdk": "2.0.0-alpha.27",
     "@tanstack/react-query": "^5.40.0",
     "@types/luxon": "^3.4.1",
     "connectkit": "1.7.3",
     "framer-motion": "^10.16.14",
+    "gql.tada": "^1.7.6",
     "html2canvas": "^1.4.1",
     "luxon": "^3.4.4",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.49.3",
+    "urql": "^4.1.0",
     "viem": "^2.13.1",
     "wagmi": "^2.10",
     "webpack-node-externals": "^3.0.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@0no-co/graphqlsp": "^1.12.8",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
     "typescript": "^5"
-  }
+  },
+  "packageManager": "pnpm@9.2.0+sha256.94fab213df221c55b6956b14a2264c21c6203cca9f0b3b95ff2fe9b84b120390"
 }

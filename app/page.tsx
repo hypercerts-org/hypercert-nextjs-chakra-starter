@@ -3,7 +3,6 @@ import { Link } from "@chakra-ui/next-js";
 import Image from "next/image";
 import { Box, Flex, Heading, Spacer, Text } from "@chakra-ui/react";
 import ClientInfo from "../components/ClientInfo";
-import { ConnectKitButton } from "connectkit";
 
 export default function Home() {
   return (
